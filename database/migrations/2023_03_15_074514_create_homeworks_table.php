@@ -20,8 +20,8 @@ return new class extends Migration
             $table->integer("state");
             $table->timestamp("deadline");
             $table->timestamp("start_at");
-            $table->bigInteger("teacher_id");
-            $table->bigInteger("class_id");
+            $table->unsignedBigInteger("teacher_id");
+            $table->unsignedBigInteger("class_id");
             $table->timestamps();
             $table->foreign("teacher_id")->references("id")->on("teachers");
             $table->foreign("class_id")->references("id")->on("classes");

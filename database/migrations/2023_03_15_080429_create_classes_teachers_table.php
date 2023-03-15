@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('classes_teachers', function (Blueprint $table) {
             $table->id();
+
+            $table->unsignedBigInteger("class_id");
+
+            $table->unsignedBigInteger("teacher_id");
+
+
+            $table->foreign("class_id")->references("id")->on("classes");
+            $table->foreign("teacher_id")->references("id")->on("teachers");
+
             $table->timestamps();
         });
     }
